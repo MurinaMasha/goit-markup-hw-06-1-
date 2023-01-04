@@ -73,6 +73,7 @@ button {
 .header__logo--studio {
   color: black;
 }
+
 .header-list {
   display: flex;
   margin-left: 94px;
@@ -168,7 +169,6 @@ button {
 }
 /*-------------------------------------main page------------------------------------------------*/
 
-
 /*-------------------------------------about----------------------------------------------------*/
 .about {
   padding-top: 200px;
@@ -180,7 +180,11 @@ button {
   height: 600px;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
     url(../images/Img20.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -391,7 +395,7 @@ button {
 .staff-list__item:last-child {
   margin-right: 0;
 }
-.staff-list__title{
+.staff-list__title {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -443,7 +447,7 @@ button {
   background-color: #2196f3;
 }
 
-.staff-icons__pic{
+.staff-icons__pic {
   fill: #afb1b8;
   width: 20px;
   height: 20px;
@@ -479,7 +483,7 @@ button {
   padding-bottom: 0px;
   padding-top: 50px;
 }
-.customers-list__item{
+.customers-list__item {
   height: 92px;
   width: calc((100% - 30px * 5) / 6);
 }
@@ -511,33 +515,14 @@ button {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 /*-------------------------------------Portfolio------------------------------------------------*/
 /*-------------------------------------menu------------------------------------------------*/
-.menu-container {
-  width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #ffffff;
+.menu {
   padding-top: 94px;
   padding-bottom: 94px;
+  background-color: #ffffff;
 }
-.menu-list {
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 34px;
-}
-.menu-item {
-  margin-right: 8px;
-  margin-bottom: 0px;
-}
-.menu-item:last-child {
-  margin-right: 0px;
-}
-.menu-title-top {
+.menu__title {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -549,11 +534,21 @@ button {
   clip-path: inset(50%);
   margin: -1px;
 }
-.menu-btn:hover {
-  background-color: var(--first-btn-background-color);
-  color: #ffffff;
+.menu-list {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 34px;
 }
-.menu-btn {
+.menu-list__item {
+  margin-right: 8px;
+  margin-bottom: 0px;
+}
+.menu-list__item:last-child {
+  margin-right: 0px;
+}
+
+.menu-list__btn {
   display: inline-block;
   font-family: inherit;
   font-weight: 500;
@@ -572,38 +567,41 @@ button {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.menu-btn:focus {
+.menu-list__btn:hover {
+  background-color: var(--first-btn-background-color);
+  color: #ffffff;
+}
+.menu-list__btn:focus {
   background-color: #f5f4fa;
   color: #000;
 }
 /*---------------------------------------projects-------------------------------------------*/
-.projects {
-  width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  background: #f5f5f5;
-}
-.projects-list {
+.grid {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
 }
-.projects-item {
+.grid__item {
   width: 370px;
   background-color: #ffffff;
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.projects-item-link {
-  position: relative;
-  display: block;
-  overflow: hidden;
 
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.grid__item:nth-child(3n) {
+  margin-right: 0px;
 }
-.projects-overlay-box {
+.grid__item:nth-last-child(-n + 3) {
+  margin-bottom: 0px;
+}
+.grid__item:hover .product__overlay {
+  transform: translateX(0%);
+}
+.grid__item:hover .product__overlay-text {
+  transform: translateX(0%);
+}
+
+.product__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -612,13 +610,22 @@ button {
   height: 295px;
   background-color: rgba(33, 150, 243, 0.9);
 
-  /* opacity: 0; */
-
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.product {
+  position: relative;
+  display: block;
+  overflow: hidden;
 
-.projects-overlay-text {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.product__overlay-text {
   display: block;
   color: #ffffff;
   font-weight: 400;
@@ -635,19 +642,7 @@ button {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.projects-item:hover .projects-overlay-box {
-  transform: translateX(0%);
-}
-.projects-item:hover .projects-overlay-text {
-  transform: translateX(0%);
-}
-
-.projects-item-link:hover {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.projects-box {
+.product-box {
   position: relative;
 
   border: 1px solid#EEEEEE;
@@ -655,13 +650,8 @@ button {
   border-top: 0;
   padding: 20px 0;
 }
-.projects-item:nth-child(3n) {
-  margin-right: 0px;
-}
-.projects-item:nth-last-child(-n + 3) {
-  margin-bottom: 0px;
-}
-.projects-title {
+
+.product__name {
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
@@ -670,7 +660,7 @@ button {
   padding-left: 24px;
   padding-left: 24px;
 }
-.projects-text {
+.product__description {
   font-weight: 400;
   font-size: 16px;
   line-height: calc(30 / 16);
@@ -690,7 +680,6 @@ button {
   align-items: baseline;
 }
 .footer-contacts {
-
   margin-right: 70px;
 }
 
@@ -702,7 +691,6 @@ button {
   letter-spacing: 0.03em;
   color: #2196f3;
   display: inline-block;
- 
 }
 .footer-logo-s {
   color: black;
@@ -754,10 +742,10 @@ button {
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.footer-contacts__logo{
+.footer-contacts__logo {
   color: #2196f3;
 }
-.footer-contacts__logo--studio{
+.footer-contacts__logo--studio {
   color: #ffffff;
 }
 .footer-contacts__list {
@@ -769,7 +757,7 @@ button {
   margin-bottom: 10px;
 }
 .footer-social {
- margin-right: 93px;
+  margin-right: 93px;
 }
 .footer-invite__title {
   font-weight: 700;
@@ -822,19 +810,18 @@ button {
 .footer-invite__input {
   width: 358px;
   height: 50px;
-color: #EEEEEE;
+  color: #eeeeee;
   border-color: rgba(255, 255, 255, 0.3);
   background-color: transparent;
   border-radius: 4px;
   padding-left: 16px;
 }
 .footer-invite__input::placeholder {
-  
   color: rgba(255, 255, 255, 0.6);
   padding-top: 15px;
   padding-bottom: 15px;
 }
-.modal-btn-send-wrapper {
+.modal-wrapper {
   position: relative;
 }
 .modal-btn-send-footer {
@@ -844,7 +831,7 @@ color: #EEEEEE;
   padding-bottom: 10px;
   padding-left: 28px;
   padding-right: 0px;
-  
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
@@ -912,7 +899,7 @@ color: #EEEEEE;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-btn {
+.modal-btn-close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -922,7 +909,6 @@ color: #EEEEEE;
   border-radius: 50%;
   background-color: #ffffff;
   cursor: pointer;
- 
 }
 .modal-img {
   display: flex;
@@ -935,11 +921,8 @@ color: #EEEEEE;
   margin-right: auto;
 }
 
-
-
 /*---------------------------------------------modal form---------------------------------------------------*/
-.modal-title {
- 
+.modal__title {
   text-align: center;
 
   font-weight: 700;
@@ -950,45 +933,41 @@ color: #EEEEEE;
   margin-bottom: 12px;
 }
 
-
-.modal-group-field {
+.modal-group__field {
   display: block;
   margin-bottom: 10px;
 }
-.modal-input {
+.modal-group__input {
   width: 100%;
   height: 40px;
   background-color: transparent;
   padding-left: 42px;
-  border: 1px solid rgba(33, 33, 33, 0.2);;
+  border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   font-size: 12px;
   line-height: calc(1 / 12);
   letter-spacing: 0.01em;
   margin-top: 4px;
 
-  
-
   transition: outline-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-input:focus {
+.modal-group__input:focus {
   outline-color: #2196f3;
 }
-.modal-input:focus + .form-icons {
+.modal-group__input:focus + .modal-group__pic {
   fill: #2196f3;
 }
 
-.modal-text {
+.modal-group__text {
   font-weight: 400;
   font-size: 12px;
   line-height: 1;
   letter-spacing: 0.01em;
   color: #757575;
   text-align: left;
- 
 }
-.modal-textarea {
+.modal-group__textarea {
   resize: none;
   max-width: 448px;
   max-height: 120px;
@@ -998,12 +977,11 @@ color: #EEEEEE;
   letter-spacing: 0.01em;
   border-radius: 4px;
   padding: 12px 16px;
-
 }
-.modal-textarea:focus {
+.modal-group__textarea:focus {
   outline-color: #2196f3;
 }
-.modal-textarea::placeholder {
+.modal-group__textarea::placeholder {
   font-weight: 400;
   font-size: 12px;
   line-height: calc(1 / 12);
@@ -1011,17 +989,15 @@ color: #EEEEEE;
   text-align: left;
   color: rgba(117, 117, 117, 0.5);
   text-align: left;
- 
-  
 }
 .checkbox {
   margin-top: 20px;
 }
 
-.modal-checkbox {
+.checkbox__input {
   appearance: none;
 }
-.modal-form-noagree {
+.checkbox__input-noagree {
   position: absolute;
   top: 50%;
   left: 5%;
@@ -1031,10 +1007,9 @@ color: #EEEEEE;
   height: 15px;
   border-radius: 4px;
   border: 2px solid#212121;
- 
 }
 
-.modal-checkbox:checked + .modal-form-noagree {
+.checkbox__input:checked + .checkbox__input-noagree {
   background-image: url(../images/icon\ check.svg);
   background-color: #2196f3;
   fill: #ffffff;
@@ -1044,14 +1019,14 @@ color: #EEEEEE;
   border-color: #2196f3;
 }
 
-.modal-checkbox-field {
+.checkbox__field {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 7px;
 }
-.modal-checkbox-text {
+.checkbox__text {
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
@@ -1059,7 +1034,7 @@ color: #EEEEEE;
   color: #757575;
   text-align: left;
 }
-.modal-checkbox-link {
+.checkbox__agreement {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
@@ -1069,11 +1044,11 @@ color: #EEEEEE;
   text-underline-position: 1px, under;
   text-align: left;
 }
-.modal-form-icons {
+.modal-group__icons {
   position: relative;
   display: block;
 }
-.form-icons {
+.modal-group__pic {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -1093,7 +1068,7 @@ color: #EEEEEE;
   text-align: center;
   letter-spacing: 0.06em;
   color: #ffffff;
-margin-top: 30px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   border: 0;
